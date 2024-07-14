@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import DnDContext from './DnDContext';
 import Block from './components/Block';
+import useAutoScroll from './hooks/useAutoScroll';
+
 import './styles.css';
 
 const initialTasks =[
@@ -26,6 +28,8 @@ const App = () => {
     'Next Week': [],
     Unplanned: initialTasks,
   });
+
+  useAutoScroll();
 
   const onDropTask = (item, targetBlock) => {
     const { id, content } = item;
